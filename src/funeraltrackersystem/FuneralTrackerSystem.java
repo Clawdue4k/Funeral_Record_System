@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class FuneralTrackerSystem {
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean exit = true;
-        
+        boolean running = true;
+
         do {
             System.out.println("\n-----------------------------------------");
-            System.out.println("|   WELCOME TO FUNERAL RECORD TRACKER   |");
+            System.out.println("|   WELCOME TO FUNERAL RECORD SYSTEM    |");
             System.out.println("-----------------------------------------");
             System.out.println("1. CLIENTS DECEASED INFORMATION");
             System.out.println("2. FUNERAL DETAILS");
@@ -25,34 +25,36 @@ public class FuneralTrackerSystem {
 
             switch(action) {
                 case 1:
-                    ClientsDeceased cs = new ClientsDeceased();
-                    cs.cTransaction();
+                    ClientsDeceased cd = new ClientsDeceased();
+                    cd.cdTransaction();
                     break;
                 case 2:
-                    System.out.println("Funeral Details selected (Feature not implemented yet).");
+                    FuneralDetails fd = new FuneralDetails();
+                    fd.fdTransaction();
                     break;
                 case 3:
-                    System.out.println("Burial Details selected (Feature not implemented yet).");
+                    BurialDetails bd = new BurialDetails();
+                    bd.bdTransaction();
                     break;
                 case 4:
-                    System.out.println("Family Contacts selected (Feature not implemented yet).");
+                    System.out.println("Family Contacts feature is not implemented yet.");
                     break;
                 case 5:
-                    System.out.println("View Reports selected (Feature not implemented yet).");
+                    System.out.println("View Reports feature is not implemented yet.");
                     break;
                 case 6:
                     System.out.print("Exit Selected... Type 'yes' to confirm: ");
                     String resp = sc.nextLine();
                     if (resp.equalsIgnoreCase("yes")) {
-                        exit = false;
+                        running = false;
                     }
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again.");
                     break;
             }
-        } while (exit);
-        
+        } while (running);
+
         sc.close();
         System.out.println("Exiting Funeral Record Tracker. Goodbye!");
     }

@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class ClientsDeceased {
 
-    private Scanner sc = new Scanner(System.in);  // Single Scanner instance for the entire class
+    private Scanner sc = new Scanner(System.in); 
 
-    public void cTransaction() {
+    public void cdTransaction() {
         String response;
 
         do {
@@ -27,7 +27,7 @@ public class ClientsDeceased {
             System.out.print("Enter selection: ");
             int act = sc.nextInt();
             sc.nextLine();  // Clear the newline character after nextInt()
-
+            FuneralDetails fd = new FuneralDetails();
             switch (act) {
                 case 1:
                     addClients();
@@ -88,14 +88,14 @@ public class ClientsDeceased {
     public void updateClients() {
         System.out.print("Enter ID to Update: ");
         int id = sc.nextInt();
-        sc.nextLine();  // Clear the newline character after nextInt()
-
+        sc.nextLine();  
+        
         config confi = new config();
         while (confi.getSingleValue("SELECT c_id FROM tbl_clientsdeceased WHERE c_id = ?", id) == 0) {
             System.out.println("Selected ID does not exist.");
             System.out.print("Select Clients ID Again: ");
             id = sc.nextInt();
-            sc.nextLine();  // Clear the newline character after nextInt()
+            sc.nextLine();  
         }
 
         System.out.print("Update Client's Name: ");
